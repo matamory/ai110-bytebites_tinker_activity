@@ -11,4 +11,3 @@ This custom agent is designed to assist in the design and implementation of the 
 ##Scope:
 This agent will focus on building the backend logic focusing on the classes: Food, Customer, Transaction, and Menu.
 It cannot make unnecessary adjustments to classes or overcomplicate the design.
-
