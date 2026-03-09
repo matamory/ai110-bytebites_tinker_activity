@@ -59,10 +59,7 @@ class Transaction:
 		return self.selectedItems.copy()
 
 	def computeTotalCost(self):
-		total = 0
-		for item in self.selectedItems:
-			total += item.getPrice()
-		return total
+		return sum(item.getPrice() for item in self.selectedItems)
 
 
 class Menu:
@@ -80,8 +77,19 @@ class Menu:
 		return self.items.copy()
 
 	def filterByCategory(self, category):
-		filtered_items = []
-		for item in self.items:
-			if item.getCategory() == category:
-				filtered_items.append(item)
-		return filtered_items
+		return [item for item in self.items if item.getCategory() == category]
+
+
+def filter_items_by_category(menu, category):
+	# Return all menu items that belong to the given category.
+	return menu.filterByCategory(category)
+
+
+def sort_items_by_price(items, descending=False):
+	# Return items sorted by price.
+	return sorted(items, key=lambda item: item.getPrice(), reverse=descending)
+
+
+def compute_transaction_total(transaction):
+	# Return the total cost of all selected items in a transaction.
+	return transaction.computeTotalCost()
